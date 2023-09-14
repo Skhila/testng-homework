@@ -1,3 +1,5 @@
+package Tests.ConfigurationClasses;
+
 import static com.codeborne.selenide.Configuration.*;
 
 import com.codeborne.selenide.Selenide;
@@ -10,21 +12,23 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.asserts.SoftAssert;
 
+
 public class ConfigTests {
     WebDriver driver;
-    SoftAssert softAssert;
+    protected SoftAssert softAssert;
 
 //    Changed default configuration for all project tests
-    @BeforeTest
+    @BeforeTest(groups = {"FrontEnd, BackEnd"})
     public void setupForAllTests(){
         reopenBrowserOnFail = false;
         timeout = 18000;
         screenshots = true;
         savePageSource = false;
+        System.out.println("1");
     }
 
 //    Start all test methods with new webdriver instances and instantiate testNG SoftAssert
-    @BeforeMethod
+    @BeforeMethod(groups = {"FrontEnd, BackEnd"})
     public void configTestMethods(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -32,11 +36,15 @@ public class ConfigTests {
         WebDriverRunner.setWebDriver(driver);
 
         softAssert = new SoftAssert();
+        System.out.println("2");
+
     }
 
 //    Close webdriver after each test method
-    @AfterMethod
+    @AfterMethod(groups = {"FrontEnd, BackEnd"})
     public void tearDown(){
+        System.out.println("3");
+
         Selenide.closeWebDriver();
     }
 }

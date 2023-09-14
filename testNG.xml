@@ -2,11 +2,24 @@
 
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="testNG Annotations">
-    <test name="Run Test Classes">
+<suite name="Parallel Groups Execution">
+    <test name="GroupsTest" parallel="classes" thread-count="2">
+        <groups>
+            <define name="EndTestsGroup">
+                <include name=".*End"/>
+            </define>
+            <run>
+                <include name="EndTestsGroup"/>
+            </run>
+        </groups>
+
         <classes>
-            <class name="CheckboxTests"></class>
-            <class name="RadioButtonTests"></class>
+            <class name="Tests.CheckboxTests"/>
+            <class name="Tests.RadioButtonTests"/>
+
+<!--            Added "TestWhichFails" class here, just to make sure it doesn't execute and groups execution works properly ;) -->
+            <class name="Tests.TestWhichFails"/>
         </classes>
     </test>
+
 </suite>

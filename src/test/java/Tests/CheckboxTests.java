@@ -1,21 +1,25 @@
+package Tests;
+
 import static com.codeborne.selenide.Configuration.*;
 import static com.codeborne.selenide.Selenide.*;
+
+import Tests.ConfigurationClasses.ConfigTests;
+import Tests.TestUtils.TestUtils;
 
 import com.codeborne.selenide.ElementsCollection;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class CheckboxTests extends ConfigTests{
+public class CheckboxTests extends ConfigTests {
 //    Set baseUrl and reportsFolder for current class tests
     @BeforeClass
     public void configTestClass(){
         reportsFolder = "src/main/resources/Reports/CheckBoxFailedTests";
-        baseUrl = "https://the-internet.herokuapp.com";
     }
 
-    @Test
+    @Test(groups = "FrontEnd")
     public void checkboxTest(){
-        open("/checkboxes");
+        open("https://the-internet.herokuapp.com/checkboxes");
 
         ElementsCollection checkboxes = $$("[type='checkbox']");
 
@@ -26,5 +30,10 @@ public class CheckboxTests extends ConfigTests{
         softAssert.fail("\n(2) Checkbox Invoked soft assertion!\n");
 
         softAssert.assertAll();
+    }
+
+    @Test(groups = "BackEnd")
+    public void checkboxTestSecond(){
+        System.out.println("(Checkbox) Successful Test!");
     }
 }
