@@ -1,6 +1,7 @@
+package Tests.TestUtils;
+
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
 import org.testng.asserts.SoftAssert;
 
 import static com.codeborne.selenide.Condition.*;
