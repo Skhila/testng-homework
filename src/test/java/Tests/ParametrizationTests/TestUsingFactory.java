@@ -31,6 +31,7 @@ public class TestUsingFactory extends ConfigParametrizationClasses {
         this.phoneNumber = phoneNumber;
     }
 
+//    Test Using Factory
     @Test
     public void testUsingFactory(){
         TestForParametrization.parametrizedFormTest(firstName, lastName, gender, phoneNumber);

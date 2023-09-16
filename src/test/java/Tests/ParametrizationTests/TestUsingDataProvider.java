@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 public class TestUsingDataProvider extends ConfigParametrizationClasses {
 
+//    Test Using DataProvider
     @Test(dataProvider = "myDataProvider")
     public void testUsingDataProvider(String firstName, String lastName, String gender, String phoneNumber){
         TestForParametrization.parametrizedFormTest(firstName, lastName, gender, phoneNumber);
