@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Parametrization Suite"  parallel="tests" thread-count="3">
+    <test name="Parametrization First Case">
+        <parameter name="firstName" value="Rick"/>
+        <parameter name="lastName" value="Sanchez"/>
+        <parameter name="gender" value="Male"/>
+        <parameter name="phoneNumber" value="1371371371"/>
+        <classes>
+            <class name="Tests.ParametrizationTests.TestUsingParameters"/>
+        </classes>
+    </test>
+
+    <test name="Parametrization Second Case">
+        <parameter name="firstName" value="Beth"/>
+        <parameter name="lastName" value="Smith"/>
+        <parameter name="gender" value="Female"/>
+        <parameter name="phoneNumber" value="1311311311"/>
+        <classes>
+            <class name="Tests.ParametrizationTests.TestUsingParameters"/>
+        </classes>
+    </test>
+
+    <test name="Parametrization Third Case">
+        <parameter name="firstName" value="Gar"/>
+        <parameter name="lastName" value="Gloonch"/>
+        <parameter name="gender" value="Other"/>
+        <parameter name="phoneNumber" value="1234567890"/>
+        <classes>
+            <class name="Tests.ParametrizationTests.TestUsingParameters"/>
+        </classes>
+    </test>
+
+<!--  Uncomment following code if you want to run factory and dataProvider tests from here 😉 -->
+
+<!--    <test name="Optional Test Case" parallel="classes" thread-count="2">-->
+<!--        <classes>-->
+<!--            <class name="Tests.ParametrizationTests.TestUsingDataProvider"/>-->
+<!--            <class name="Tests.ParametrizationTests.TestUsingFactory"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+</suite>
