@@ -2,7 +2,7 @@
 
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Parametrization Suite"  parallel="tests" thread-count="3">
+<suite name="Parametrization Suite" parallel="tests" thread-count="3">
     <test name="Parametrization First Case">
         <parameter name="firstName" value="Rick"/>
         <parameter name="lastName" value="Sanchez"/>
@@ -33,9 +33,9 @@
         </classes>
     </test>
 
-<!--  Uncomment following code if you want to run factory and dataProvider tests from here 😉 -->
+<!--  Uncomment the following code if you want to run factory and dataProvider tests from here 😉 -->
 
-<!--    <test name="Optional Test Case" parallel="classes" thread-count="2">-->
+<!--    <test name="Optional Test Case">-->
 <!--        <classes>-->
 <!--            <class name="Tests.ParametrizationTests.TestUsingDataProvider"/>-->
 <!--            <class name="Tests.ParametrizationTests.TestUsingFactory"/>-->
