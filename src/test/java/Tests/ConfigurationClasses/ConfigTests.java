@@ -18,17 +18,16 @@ public class ConfigTests {
     protected SoftAssert softAssert;
 
 //    Changed default configuration for all project tests
-    @BeforeTest(groups = {"FrontEnd, BackEnd"})
+    @BeforeTest(alwaysRun = true)
     public void setupForAllTests(){
         reopenBrowserOnFail = false;
         timeout = 18000;
         screenshots = true;
         savePageSource = false;
-        System.out.println("1");
     }
 
 //    Start all test methods with new webdriver instances and instantiate testNG SoftAssert
-    @BeforeMethod(groups = {"FrontEnd, BackEnd"})
+    @BeforeMethod(alwaysRun = true)
     public void configTestMethods(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -36,15 +35,11 @@ public class ConfigTests {
         WebDriverRunner.setWebDriver(driver);
 
         softAssert = new SoftAssert();
-        System.out.println("2");
-
     }
 
 //    Close webdriver after each test method
-    @AfterMethod(groups = {"FrontEnd, BackEnd"})
+    @AfterMethod(alwaysRun = true)
     public void tearDown(){
-        System.out.println("3");
-
         Selenide.closeWebDriver();
     }
 }
